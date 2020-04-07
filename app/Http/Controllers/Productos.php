@@ -43,7 +43,7 @@ class Productos extends Controller
 
                 $this->validate($request, [
                     'nombre' => 'required|unique:producto|max:40',
-                    'precio' => 'required|numeric|max:200',
+                    'precio' => 'required|numeric',
                     'existencia' => 'required|numeric|max:200',
                 ]);
 
@@ -81,9 +81,9 @@ class Productos extends Controller
                 $prod->precio = $request->precio;
                 $prod->existencia = $request->existencia;
 
-                $this->validate($request, [
+               $this->validate($request, [
                     'nombre' => 'required|max:40',
-                    'precio' => 'required|numeric|max:200',
+                        'precio' => 'required|numeric|',
                     'existencia' => 'required|numeric|max:200',
                 ]);
 

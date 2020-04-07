@@ -19,6 +19,9 @@
 
 
                             </div>
+                            @error('nombre')
+                            <p class= "text-danger">{{ $message }}</p>
+                             @enderror
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
@@ -27,6 +30,9 @@
                                 value="{{$old->precio}}"
                                 class="form-control">
                             </div>
+                            @error('precio')
+                             <p class= "text-danger">{{ $message }}</p>
+                              @enderror
                         </div>
 
                         <div class="form-group">
@@ -66,7 +72,7 @@
                             </div>
                             @error('nombre')
                             <p class= "text-danger">{{ $message }}</p>
-                                                    @enderror
+                             @enderror
                         </div>
 
                         <div class="form-group">
@@ -74,9 +80,13 @@
                             <div class="col-md-8">
                                 <input id="precio" name="precio" type="text" placeholder="Ingrese el precio" class="form-control">
                             </div>
-                            @error('precio')
-                            <p class= "text-danger">{{ $message }}</p>
-                             @enderror
+                            @if(session('pr'))
+                            <p class= "text-danger">{{ session('pr') }}</p>
+                             @endif
+
+                             @error('precio')
+                             <p class= "text-danger">{{ $message }}</p>
+                              @enderror
                         </div>
 
                         <div class="form-group">

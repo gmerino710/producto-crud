@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Middleware\Checkprice;
+
 Route::get('/','Productos@inicio');
 
 Route::get('/formulario','Productos@store');
@@ -19,9 +21,9 @@ Route::get('/eliminar/{id?}','Productos@destroy');
 
 Route::get('/editar/{id?}','Productos@edit');
 
-Route::post('/actual/{id?}','Productos@act');
+Route::post('/actual/{id?}','Productos@act')->middleware(Checkprice::class);
 
-Route::post('/guardar','Productos@save');
+Route::post('/guardar','Productos@save')->middleware(Checkprice::class);
 
 
 
